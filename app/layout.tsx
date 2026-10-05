@@ -1,10 +1,18 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Bricolage_Grotesque, Geist } from 'next/font/google'
 import './globals.css'
 
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin'],
+  variable: '--font-bricolage',
+})
+
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'SkillSiren — Turn your skills into opportunities',
+  description:
+    'SkillSiren is a talent and skill-exchange network where people find paid work, hire talent, collaborate, or exchange professional skills — with AI matching the right skills to the right opportunities.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -26,11 +34,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'dark',
+  themeColor: '#14161f',
 }
 
 export default function RootLayout({
@@ -39,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${bricolage.variable}`}>
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

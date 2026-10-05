@@ -1,16 +1,28 @@
-export default function Home() {
+import { AiMatching } from '@/components/site/ai-matching'
+import { Architecture } from '@/components/site/architecture'
+import { ClosingCta, SiteFooter } from '@/components/site/closing'
+import { Hero } from '@/components/site/hero'
+import { HowItWorks } from '@/components/site/how-it-works'
+import { OpportunityFeed } from '@/components/site/opportunity-feed'
+import { SiteHeader } from '@/components/site/site-header'
+import { SkillSwap } from '@/components/site/skill-swap'
+import { ThreePaths } from '@/components/site/three-paths'
+
+export default function Page() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans">
-      <main className="flex w-full max-w-3xl flex-col items-center gap-8 px-6 py-16 text-center sm:items-start sm:text-left">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold tracking-tight">
-            Skillsiren
-          </h1>
-          <p className="max-w-md text-lg text-muted-foreground">
-            To get started, send a prompt or modify this page directly.
-          </p>
-        </div>
+    <>
+      <SiteHeader />
+      <main>
+        <Hero />
+        <ThreePaths />
+        <SkillSwap />
+        <OpportunityFeed />
+        <AiMatching />
+        <HowItWorks />
+        <Architecture />
+        <ClosingCta />
       </main>
-    </div>
-  );
+      <SiteFooter />
+    </>
+  )
 }
